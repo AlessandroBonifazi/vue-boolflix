@@ -52,7 +52,7 @@ export default {
       axios
         .get(this.apiURL + "movie", { params })
         .then(({ data }) => {
-          console.log(data);
+          console.log("soccia", data);
           this.movies = data.results;
           this.searching = false;
           console.log("movies", this.movies);

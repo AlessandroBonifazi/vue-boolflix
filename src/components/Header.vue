@@ -1,10 +1,10 @@
 <template>
-  <main>
+  <header>
     <div>
       <input type="text" v-model="inputText" />
       <button @click="$emit('search', inputText)">Search</button>
     </div>
-  </main>
+  </header>
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-main {
-  height: calc(100% - 100px);
+header {
+  height: 100px;
 }
 </style>
