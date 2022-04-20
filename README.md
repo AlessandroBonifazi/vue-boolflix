@@ -1,4 +1,4 @@
-# i
+# Boolflix
 
 ## Project setup
 ```
