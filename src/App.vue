@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <Main />
+    <Header @search="inputText" />
+    <Main :seriesList="series" :moviesList="movies" />
   </div>
 </template>
 
@@ -26,15 +26,47 @@ export default {
       searching: false,
     };
   },
-  mounted() {
-    axios
-      .get(this.apiURL + "tv")
-      .then(({ data }) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  methods: {
+    queryTv(inputText) {
+      const params = {
+        api_key: this.apiKey,
+        query: inputText,
+      };
+      axios
+        .get(this.apiURL + "tv", { params })
+        .then(({ data }) => {
+          console.log(data);
+          this.series = data.results;
+          this.searching = false;
+          console.log("series", this.series);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    queryMovie(inputText) {
+      const params = {
+        api_key: this.apiKey,
+        query: inputText,
+      };
+      axios
+        .get(this.apiURL + "movie", { params })
+        .then(({ data }) => {
+          console.log(data);
+          this.movies = data.results;
+          this.searching = false;
+          console.log("movies", this.movies);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    inputText(inputText) {
+      if (!this.searching) {
+        this.queryTv(inputText);
+        this.queryMovie(inputText);
+      }
+    },
   },
 };
 </script>

@@ -1,12 +1,20 @@
 <template>
   <main>
-    <h1>Main</h1>
+    <div>
+      <input type="text" v-model="inputText" />
+      <button @click="$emit('search', inputText)">Search</button>
+    </div>
   </main>
 </template>
 
 <script>
 export default {
   name: "HeaderComponent",
+  data() {
+    return {
+      inputText: "",
+    };
+  },
 };
 </script>
 
