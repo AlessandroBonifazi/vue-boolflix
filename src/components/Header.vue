@@ -2,7 +2,7 @@
   <header>
     <div>
       <input type="text" v-model="inputText" />
-      <button @click="$emit('search', inputText)">Search</button>
+      <button @click="search">Search</button>
     </div>
   </header>
 </template>
@@ -14,6 +14,11 @@ export default {
     return {
       inputText: "",
     };
+  },
+  methods: {
+    search() {
+      this.$emit("search", this.inputText);
+    },
   },
 };
 </script>
