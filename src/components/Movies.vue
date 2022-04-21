@@ -6,6 +6,7 @@
       <p>Titolo originale: {{ movie.original_title }}</p>
       <p>Lingua: {{ movie.original_language }}</p>
       <p>Voto: {{ voteToStar(movie.vote_average) }}</p>
+      <font-awesome-icon icon="fa-solid fa-star" />
     </div>
   </div>
 </template>
