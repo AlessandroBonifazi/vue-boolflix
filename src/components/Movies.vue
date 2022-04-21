@@ -12,6 +12,7 @@
           v-for="vote in voteToStar(serie.vote_average)"
           :key="vote"
           icon="fa-solid fa-star"
+          class="star"
         />
         <font-awesome-icon
           v-for="vote in 5 - voteToStar(serie.vote_average)"
@@ -53,6 +54,9 @@ export default {
     width: 20%;
     margin: 10px;
     padding: 5px;
+    .star {
+      background-color: gold;
+    }
   }
 }
 </style>
