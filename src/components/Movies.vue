@@ -5,8 +5,20 @@
       <h4>{{ movie.title }}</h4>
       <p>Titolo originale: {{ movie.original_title }}</p>
       <p>Lingua: {{ movie.original_language }}</p>
-      <p>Voto: {{ voteToStar(movie.vote_average) }}</p>
-      <font-awesome-icon icon="fa-solid fa-star" />
+      <p>
+        Voto:
+        <!-- {{ voteToStar(movie.vote_average) }} -->
+        <font-awesome-icon
+          v-for="vote in voteToStar(serie.vote_average)"
+          :key="vote"
+          icon="fa-solid fa-star"
+        />
+        <font-awesome-icon
+          v-for="vote in 5 - voteToStar(serie.vote_average)"
+          :key="vote"
+          icon="fa-regular fa-star"
+        />
+      </p>
     </div>
   </div>
 </template>

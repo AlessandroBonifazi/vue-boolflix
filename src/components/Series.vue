@@ -4,9 +4,22 @@
       <img :src="imgURL + serie.poster_path" :alt="serie.name" />
 
       <h4>{{ serie.name }}</h4>
-      <p>Titolo originale:{{ serie.original_name }}</p>
-      <p>Lingua: {{ serie.original_language }}</p>
-      <p>Voto: {{ voteToStar(serie.vote_average) }}</p>
+      <span>Titolo originale:{{ serie.original_name }}</span>
+      <span>Lingua: {{ serie.original_language }}</span>
+      <span>
+        Voto:
+        <!-- {{ voteToStar(serie.vote_average) }} -->
+        <font-awesome-icon
+          v-for="vote in voteToStar(serie.vote_average)"
+          :key="vote"
+          icon="fa-solid fa-star"
+        />
+        <font-awesome-icon
+          v-for="vote in 5 - voteToStar(serie.vote_average)"
+          :key="vote"
+          icon="fa-regular fa-star"
+        />
+      </span>
     </div>
   </div>
 </template>
@@ -20,8 +33,7 @@ export default {
   },
   methods: {
     voteToStar(x) {
-      const vote = Math.ceil(x / 2);
-      return vote;
+      return Math.ceil(x / 2);
     },
   },
 };
