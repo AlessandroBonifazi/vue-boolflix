@@ -7,6 +7,7 @@
 
 <script>
 import axios from "axios";
+// import apiKey from "@/apikey";
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
 
@@ -31,11 +32,11 @@ export default {
       const params = {
         api_key: this.apiKey,
         query: inputText,
+        language: "it-IT",
       };
       axios
         .get(this.apiURL + "tv", { params })
         .then(({ data }) => {
-          console.log(data);
           this.series = data.results;
           this.searching = false;
           console.log("series", this.series);
@@ -48,11 +49,11 @@ export default {
       const params = {
         api_key: this.apiKey,
         query: inputText,
+        language: "it-IT",
       };
       axios
         .get(this.apiURL + "movie", { params })
         .then(({ data }) => {
-          console.log("soccia", data);
           this.movies = data.results;
           this.searching = false;
           console.log("movies", this.movies);
