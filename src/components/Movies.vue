@@ -50,7 +50,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-content: space-between;
-    width: 25%;
+    width: 20%;
     margin: 10px;
     padding: 5px;
   }
