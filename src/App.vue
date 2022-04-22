@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <Header @search="inputText" />
+    <Header @search="textToSearch" />
     <Main :seriesList="series" :moviesList="movies" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-// import {apiKey} from "./apikey";
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
 import { apiKey } from "./apikey";
@@ -29,10 +28,10 @@ export default {
     };
   },
   methods: {
-    queryTv(inputText) {
+    queryTv(textToSearch) {
       const params = {
         api_key: this.apiKey,
-        query: inputText,
+        query: textToSearch,
         language: "it-IT",
       };
       axios
@@ -46,10 +45,10 @@ export default {
           console.log(error);
         });
     },
-    queryMovie(inputText) {
+    queryMovie(textToSearch) {
       const params = {
         api_key: this.apiKey,
-        query: inputText,
+        query: textToSearch,
         language: "it-IT",
       };
       axios
@@ -63,10 +62,10 @@ export default {
           console.log(error);
         });
     },
-    inputText(inputText) {
+    textToSearch(textToSearch) {
       if (!this.searching) {
-        this.queryTv(inputText);
-        this.queryMovie(inputText);
+        this.queryTv(textToSearch);
+        this.queryMovie(textToSearch);
       }
     },
   },

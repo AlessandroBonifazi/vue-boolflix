@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import CountryFlag from 'vue-country-flag'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -15,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(farStar, fasStar)
 
 /* add font awesome icon component */
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-icon', FontAwesomeIcon, 'country-flag', CountryFlag)
 
 Vue.config.productionTip = false
 

@@ -4,13 +4,7 @@
       <img :src="imgURL + movie.poster_path" :alt="movie.title" />
       <h4>{{ movie.title }}</h4>
       <span>Titolo originale: {{ movie.original_title }}</span>
-      <span>
-        Lingua: {{ movie.original_language }}
-        <!-- <img
-          :src="require(`@/assets/${movie.original_language}.jpg`)"
-          :alt="movie.title"
-        /> -->
-      </span>
+      <span> Lingua: {{ movie.original_language }} </span>
       <span>
         Voto:
         <!-- {{ voteToStar(movie.vote_average) }} -->
@@ -39,8 +33,7 @@ export default {
   },
   methods: {
     voteToStar(x) {
-      const vote = Math.ceil(x / 2);
-      return vote;
+      return Math.ceil(x / 2);
     },
   },
 };
@@ -61,7 +54,7 @@ export default {
     margin: 10px;
     padding: 5px;
     .star {
-      background-color: gold;
+      color: gold;
     }
   }
 }

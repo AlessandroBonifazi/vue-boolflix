@@ -4,7 +4,7 @@
       <h2>Boolflix</h2>
     </div>
     <div>
-      <input type="text" v-model="inputText" />
+      <input type="text" v-model="textToSearch" />
       <button @click="search">Search</button>
     </div>
   </header>
@@ -15,12 +15,12 @@ export default {
   name: "HeaderComponent",
   data() {
     return {
-      inputText: "",
+      textToSearch: "",
     };
   },
   methods: {
     search() {
-      this.$emit("search", this.inputText);
+      this.$emit("search", this.textToSearch);
     },
   },
 };
