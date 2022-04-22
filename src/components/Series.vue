@@ -1,11 +1,22 @@
 <template>
   <div class="container">
     <div v-for="(serie, index) in series" :key="index" class="card">
+      <!-- poster -->
       <img :src="imgURL + serie.poster_path" :alt="serie.name" />
-
+      <!-- titles -->
       <h4>{{ serie.name }}</h4>
       <span>Titolo originale:{{ serie.original_name }}</span>
-      <span>Lingua: {{ serie.original_language }}</span>
+      <!-- language -->
+      <div>
+        <span>Lingua:</span>
+        <span v-if="serie.original_language === 'en'">
+          <img id="en-flag" src="@/assets/en_flag.png" alt="en flag" />
+        </span>
+        <span v-else>
+          <country-flag :country="serie.original_language" size="small" />
+        </span>
+      </div>
+      <!-- ratings -->
       <span>
         Voto:
         <!-- {{ voteToStar(serie.vote_average) }} -->

@@ -1,10 +1,22 @@
 <template>
   <div class="container">
     <div v-for="(movie, index) in movies" :key="index" class="card">
+      <!-- poster -->
       <img :src="imgURL + movie.poster_path" :alt="movie.title" />
+      <!-- titles -->
       <h4>{{ movie.title }}</h4>
       <span>Titolo originale: {{ movie.original_title }}</span>
-      <span> Lingua: {{ movie.original_language }} </span>
+      <!-- language -->
+      <div>
+        <span>Lingua:</span>
+        <span v-if="movie.original_language === 'en'">
+          <img id="en-flag" src="@/assets/en_flag.png" alt="en flag" />
+        </span>
+        <span v-else>
+          <country-flag :country="movie.original_language" size="small" />
+        </span>
+      </div>
+      <!-- ratings -->
       <span>
         Voto:
         <!-- {{ voteToStar(movie.vote_average) }} -->
@@ -27,6 +39,9 @@
 <script>
 export default {
   name: "MoviesList",
+  data() {
+    return {};
+  },
   props: {
     movies: Array,
     imgURL: String,
@@ -55,6 +70,9 @@ export default {
     padding: 5px;
     .star {
       color: gold;
+    }
+    #en-flag {
+      height: 20px;
     }
   }
 }
