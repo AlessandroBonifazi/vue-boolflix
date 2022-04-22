@@ -10,9 +10,11 @@
       <div>
         <span>Lingua:</span>
         <span v-if="movie.original_language === 'en'">
+          {{ movie.original_language }}
           <img id="en-flag" src="@/assets/en_flag.png" alt="en flag" />
         </span>
         <span v-else>
+          {{ movie.original_language }}
           <country-flag :country="movie.original_language" size="small" />
         </span>
       </div>

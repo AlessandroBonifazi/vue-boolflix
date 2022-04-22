@@ -10,9 +10,11 @@
       <div>
         <span>Lingua:</span>
         <span v-if="serie.original_language === 'en'">
+          {{ serie.original_language }}
           <img id="en-flag" src="@/assets/en_flag.png" alt="en flag" />
         </span>
         <span v-else>
+          {{ serie.original_language }}
           <country-flag :country="serie.original_language" size="small" />
         </span>
       </div>
@@ -67,6 +69,9 @@ export default {
     padding: 5px;
     .star {
       color: gold;
+    }
+    #en-flag {
+      height: 20px;
     }
   }
 }
