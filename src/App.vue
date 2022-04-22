@@ -7,9 +7,10 @@
 
 <script>
 import axios from "axios";
-// import apiKey from "@/apikey";
+// import {apiKey} from "./apikey";
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
+// import { apiKey } from "./apikey";
 
 export default {
   name: "App",

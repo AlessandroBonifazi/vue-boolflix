@@ -3,23 +3,29 @@
     <div v-for="(movie, index) in movies" :key="index" class="card">
       <img :src="imgURL + movie.poster_path" :alt="movie.title" />
       <h4>{{ movie.title }}</h4>
-      <p>Titolo originale: {{ movie.original_title }}</p>
-      <p>Lingua: {{ movie.original_language }}</p>
-      <p>
+      <span>Titolo originale: {{ movie.original_title }}</span>
+      <span>
+        Lingua: {{ movie.original_language }}
+        <!-- <img
+          :src="require(`@/assets/${movie.original_language}.jpg`)"
+          :alt="movie.title"
+        /> -->
+      </span>
+      <span>
         Voto:
         <!-- {{ voteToStar(movie.vote_average) }} -->
         <font-awesome-icon
-          v-for="vote in voteToStar(serie.vote_average)"
+          v-for="vote in voteToStar(movie.vote_average)"
           :key="vote"
           icon="fa-solid fa-star"
           class="star"
         />
         <font-awesome-icon
-          v-for="vote in 5 - voteToStar(serie.vote_average)"
+          v-for="vote in 5 - voteToStar(movie.vote_average)"
           :key="vote"
           icon="fa-regular fa-star"
         />
-      </p>
+      </span>
     </div>
   </div>
 </template>
