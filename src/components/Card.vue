@@ -39,6 +39,7 @@
 export default {
   name: "CardComponent",
   props: {
+    // info: Object,
     img: String,
     title: String,
     originalTitle: String,

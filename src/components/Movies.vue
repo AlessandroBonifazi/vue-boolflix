@@ -10,6 +10,15 @@
       :vote="movie.vote_average"
       :overview="movie.overview"
     />
+
+    <!-- :info="{
+        img: imgURL + movie.poster_path,
+        title: movie.title,
+        originalTitle: movie.original_title,
+        language: movie.original_language,
+        vote: movie.vote_average,
+        overview: movie.overview,
+      }" -->
   </div>
 </template>
 
