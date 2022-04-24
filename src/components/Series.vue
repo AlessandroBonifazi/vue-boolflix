@@ -1,54 +1,29 @@
 <template>
   <div class="container">
-    <div v-for="(serie, index) in series" :key="index" class="card">
-      <!-- poster -->
-      <img :src="imgURL + serie.poster_path" :alt="serie.name" />
-      <!-- titles -->
-      <h4>{{ serie.name }}</h4>
-      <span>Titolo originale:{{ serie.original_name }}</span>
-      <!-- language -->
-      <div>
-        <span>Lingua:</span>
-        <span v-if="serie.original_language === 'en'">
-          {{ serie.original_language }}
-          <img id="en-flag" src="@/assets/en_flag.png" alt="en flag" />
-        </span>
-        <span v-else>
-          {{ serie.original_language }}
-          <country-flag :country="serie.original_language" size="small" />
-        </span>
-      </div>
-      <!-- ratings -->
-      <span>
-        Voto:
-        <!-- {{ voteToStar(serie.vote_average) }} -->
-        <font-awesome-icon
-          v-for="vote in voteToStar(serie.vote_average)"
-          :key="vote"
-          icon="fa-solid fa-star"
-          class="star"
-        />
-        <font-awesome-icon
-          v-for="vote in 5 - voteToStar(serie.vote_average)"
-          :key="vote"
-          icon="fa-regular fa-star"
-        />
-      </span>
-    </div>
+    <CardComponent
+      v-for="(serie, index) in series"
+      :key="index"
+      :img="imgURL + serie.poster_path"
+      :title="serie.name"
+      :originalTitle="serie.original_name"
+      :language="serie.original_language"
+      :vote="serie.vote_average"
+      :overview="serie.overview"
+    />
   </div>
 </template>
 
 <script>
+import CardComponent from "./Card.vue";
+
 export default {
   name: "SeriesList",
+  components: {
+    CardComponent,
+  },
   props: {
     series: Array,
     imgURL: String,
-  },
-  methods: {
-    voteToStar(x) {
-      return Math.ceil(x / 2);
-    },
   },
 };
 </script>
@@ -60,19 +35,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  .card {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    width: 20%;
-    margin: 10px;
-    padding: 5px;
-    .star {
-      color: gold;
-    }
-    #en-flag {
-      height: 20px;
-    }
-  }
 }
 </style>
+
