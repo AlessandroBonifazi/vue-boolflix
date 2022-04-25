@@ -4,8 +4,15 @@
       <h2>BOOLFLIX</h2>
     </div>
     <div>
-      <input class="searchInput" type="text" v-model="textToSearch" />
-      <button @click="search">SEARCH</button>
+      <input
+        class="searchInput"
+        type="text"
+        v-model="textToSearch"
+        placeholder="Search"
+      />
+      <button @click="search">
+        <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+      </button>
     </div>
   </header>
 </template>

@@ -84,7 +84,7 @@ export default {
     width: 100%;
     border: 2px solid lightgrey;
     padding: 3px;
-    border-radius: 5px;
+    border-radius: 3px;
   }
 
   .details {
@@ -93,7 +93,7 @@ export default {
     height: 390px;
     border: 2px solid lightgrey;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 3px;
     .overview {
       font-size: 14px;
       font-family: Arial, Helvetica, sans-serif;
@@ -103,6 +103,9 @@ export default {
     }
     #en-flag {
       height: 20px;
+      width: 20px;
+      border: none;
+      padding: 0;
     }
   }
 }
