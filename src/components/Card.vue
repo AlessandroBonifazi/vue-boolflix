@@ -96,7 +96,7 @@ export default {
     color: white;
     height: 390px;
     border: 2px solid lightgrey;
-    padding: 3px;
+    padding: 10px;
     border-radius: 5px;
     .overview {
       font-size: 14px;
