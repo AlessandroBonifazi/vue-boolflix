@@ -89,11 +89,15 @@ export default {
 
   .details {
     overflow-y: hidden;
-    color: white;
+    color: rgba(255, 255, 255, 0.918);
     height: 390px;
     border: 2px solid lightgrey;
     padding: 10px;
     border-radius: 3px;
+    h3 {
+      font-size: 23px;
+      font-weight: 500;
+    }
     .overview {
       font-size: 14px;
       font-family: Arial, Helvetica, sans-serif;
