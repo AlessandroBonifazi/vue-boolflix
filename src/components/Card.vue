@@ -92,7 +92,12 @@ export default {
     height: 20px;
   }
   .details {
+    overflow-y: hidden;
     color: white;
+    height: 390px;
+    border: 2px solid lightgrey;
+    padding: 3px;
+    border-radius: 5px;
     .overview {
       font-size: 14px;
       font-family: Arial, Helvetica, sans-serif;
