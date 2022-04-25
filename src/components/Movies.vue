@@ -39,7 +39,7 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  width: 80%;
+  width: 95%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
