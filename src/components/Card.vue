@@ -1,11 +1,11 @@
 <template>
   <div class="card" @mouseenter="hover = true" @mouseleave="hover = false">
     <!-- poster -->
-    <div v-if="!hover">
+    <div v-if="!hover && img !== img404">
       <img :src="img" :alt="title" />
     </div>
 
-    <div v-else class="details">
+    <div v-else-if="hover || img === img404" class="details">
       <!-- titles -->
       <h3>{{ title }}</h3>
       <span>Titolo originale: {{ originalTitle }}</span>
@@ -48,6 +48,7 @@ export default {
   data() {
     return {
       hover: false,
+      img404: "https://image.tmdb.org/t/p/w342null",
     };
   },
   props: {
@@ -78,19 +79,14 @@ export default {
   padding: 5px;
   cursor: pointer;
   overflow-y: hidden;
-
   img {
+    height: 390px;
     width: 100%;
     border: 2px solid lightgrey;
     padding: 3px;
     border-radius: 5px;
   }
-  .star {
-    color: gold;
-  }
-  #en-flag {
-    height: 20px;
-  }
+
   .details {
     overflow-y: hidden;
     color: white;
@@ -101,6 +97,12 @@ export default {
     .overview {
       font-size: 14px;
       font-family: Arial, Helvetica, sans-serif;
+    }
+    .star {
+      color: gold;
+    }
+    #en-flag {
+      height: 20px;
     }
   }
 }
